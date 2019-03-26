@@ -1,8 +1,8 @@
 import '../../filters/all';
 import '../../directives/all';
 import _ from 'lodash';
-import {PanelCtrl} from 'app/plugins/sdk';
-import {loadPluginCss} from 'app/plugins/sdk';
+import {PanelCtrl} from 'grafana/app/plugins/sdk';
+import {loadPluginCss} from 'grafana/app/plugins/sdk';
 
 loadPluginCss({
   dark: 'plugins/raintank-worldping-app/css/worldping.dark.css',

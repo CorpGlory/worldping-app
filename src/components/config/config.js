@@ -1,4 +1,4 @@
-import configTemplate from './config.html!text';
+import configTemplate from './config.html';
 import DatasourceUpgrader from './dsUpgrade';
 
 class WorldPingConfigCtrl {
