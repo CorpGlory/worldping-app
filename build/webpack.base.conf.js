@@ -2,7 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const ExtractTextPluginLight = new ExtractTextPlugin('./css/worldping.light.css');
+const ExtractTextPluginDark = new ExtractTextPlugin('./css/worldping.dark.css');
 
 const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
@@ -15,7 +18,7 @@ module.exports = {
   context: resolve('src'),
   devtool: 'inline-source-map',
   entry: {
-    './module': './module.js',
+    './module': ['./module.js', './sass/worldping.dark.scss', './sass/worldping.light.scss'],
 
     'components/config/config': './components/config/config.js',
 
@@ -71,10 +74,8 @@ module.exports = {
       root: resolve('.')
     }),
     new ngAnnotatePlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
-      path: resolve('dist'),
-    })
+    ExtractTextPluginLight,
+    ExtractTextPluginDark
   ],
   resolve: {
     extensions: ['.js', '.html', '.scss'],
@@ -109,19 +110,31 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[path][name].[ext]',
-            publicPath: '/public/plugins/raintank-worldping-app'
+            publicPath: 'public/plugins/raintank-worldping-app'
           },
         },
       },
       {
-        test: /\.scss$/,
+        test: /\.light\.scss$/,
         exclude: /node_modules/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'resolve-url-loader',
-          'sass-loader'
-        ]
+        use: ExtractTextPluginLight.extract({
+          use: [
+            'css-loader',
+            'resolve-url-loader',
+            'sass-loader'
+          ]
+        })
+      },
+      {
+        test: /\.dark\.scss$/,
+        exclude: /node_modules/,
+        use: ExtractTextPluginDark.extract({
+          use: [
+            'css-loader',
+            'resolve-url-loader',
+            'sass-loader'
+          ]
+        })
       }
     ]
   }
