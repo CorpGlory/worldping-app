@@ -18,21 +18,7 @@ module.exports = {
   context: resolve('src'),
   devtool: 'inline-source-map',
   entry: {
-    './module': ['./module.js', './sass/worldping.dark.scss', './sass/worldping.light.scss'],
-
-    'components/config/config': './components/config/config.js',
-
-    'components/endpoint/endpoint_config': './components/endpoint/endpoint_config.js',
-    'components/endpoint/endpoint_details': './components/endpoint/endpoint_details.js',
-    'components/endpoint/endpoint_list': './components/endpoint/endpoint_list.js',
-
-    'components/probe/probe_create': './components/probe/probe_create.js',
-    'components/probe/probe_details': './components/probe/probe_details.js',
-    'components/probe/probe_list': './components/probe/probe_list.js',
-
-    'directives/all': './directives/all.js',
-
-    'filters/all': './filters/all.js',
+    './module': './module.js',
 
     'panels/call-to-action/module': './panels/call-to-action/module.js',
     'panels/endpoint-list/module': './panels/endpoint-list/module.js',

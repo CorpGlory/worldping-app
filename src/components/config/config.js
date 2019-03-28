@@ -2,6 +2,7 @@ import configTemplate from './config.html';
 import DatasourceUpgrader from './dsUpgrade';
 
 class WorldPingConfigCtrl {
+  /** @ngInject */
   constructor($scope, $injector, $q, backendSrv, alertSrv, contextSrv, datasourceSrv) {
     this.$q = $q;
     this.backendSrv = backendSrv;
