@@ -291,7 +291,7 @@ $tooltipArrowColor: $tooltipBackground; // Used by Angular tooltip
 $tooltipBackgroundError: $brand-danger;
 
 // images
-$checkboxImageUrl: '../img/checkbox_white.png';
+$checkboxImageUrl: url(../img/checkbox_white.png);
 
 // info box
 $info-box-border-color: $sapphire-base;

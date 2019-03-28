@@ -136,7 +136,7 @@
 
 // worldSpin Animation
 .rt-spin-dot {
-    background-image: url("/public/plugins/raintank-worldping-app/img/worldping_dot.svg");
+    background-image: url(../img/worldping_dot.svg);
     opacity: 1;
     width: 21px;
     height: 21px;
@@ -164,7 +164,7 @@
 }
 
 .rt-world {
-    background-image: url("/public/plugins/raintank-worldping-app/img/worldping_map.svg");
+    background-image: url(../img/worldping_map.svg);
     background-repeat: repeat;
     background-position: 0 -60px;
     opacity: 1;

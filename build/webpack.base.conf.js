@@ -103,6 +103,17 @@ module.exports = {
         },
       },
       {
+        test: /\.(png|svg)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+            publicPath: '/public/plugins/raintank-worldping-app'
+          },
+        },
+      },
+      {
         test: /\.scss$/,
         exclude: /node_modules/,
         use: [

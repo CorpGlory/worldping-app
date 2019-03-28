@@ -299,7 +299,7 @@ $tooltipArrowColor: $tooltipBackground;
 $tooltipBackgroundError: $brand-danger;
 
 // images
-$checkboxImageUrl: '../img/checkbox.png';
+$checkboxImageUrl: url(../img/checkbox.png);
 
 // info box
 $info-box-border-color: $sapphire-base;
