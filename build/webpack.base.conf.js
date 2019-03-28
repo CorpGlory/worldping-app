@@ -7,8 +7,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ExtractTextPluginLight = new ExtractTextPlugin('./css/worldping.light.css');
 const ExtractTextPluginDark = new ExtractTextPlugin('./css/worldping.dark.css');
 
-const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
-
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
@@ -59,7 +57,6 @@ module.exports = {
     new CleanWebpackPlugin(['dist'], {
       root: resolve('.')
     }),
-    new ngAnnotatePlugin(),
     ExtractTextPluginLight,
     ExtractTextPluginDark
   ],
@@ -77,7 +74,8 @@ module.exports = {
             presets: [require.resolve('babel-preset-es2015')],
             plugins: [
               require.resolve('babel-plugin-transform-es2015-modules-commonjs'),
-              require.resolve('babel-plugin-transform-es2015-for-of')
+              require.resolve('babel-plugin-transform-es2015-for-of'),
+              require.resolve('babel-plugin-angularjs-annotate')
             ],
           }
         }
